@@ -1,0 +1,25 @@
+<!--
+1. 사용자는 가위, 바위, 보 버튼을 눌러 게임을 진행합니다.
+index.html 은 rockscissorspaper.js 를 외부 스크립트로 참조합니다.
+index.html 은 game, result 의 id 를 가진 div 요소를 가집니다.
+Game 의 id 를 가진 div 요소는 btnScissors, btnRock, btnPaper 의 id 를 가진 button 요소를 자식요소로 가집니다.
+-->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8" />
+    <title>가위, 바위, 보</title>
+    <script type="text/javascript" src="rockscissorspaper.js">
+    </script>
+</head>
+<body>
+<div id="game">
+    <button id="btnScissors">가위</button>
+    <button id="btnRock">바위</button>
+    <button id="btnPaper">보</button>
+</div>
+<div id="result">
+    가위 바위 보...
+</div>
+</body>
+</html>

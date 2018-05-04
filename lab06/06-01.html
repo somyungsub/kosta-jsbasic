@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8"/>
+    <title>06-01</title>
+</head>
+<body>
+<script type="text/javascript">
+    // 프로토타입 체인과 프로토타입 멤버 상속
+
+    // Car 생성자 함수의 프로토타입 객체는 new 연산자와 Object 생성자 함수 호출을 통해 생성된 객체이며,
+    // 프로토타입 객체에 constructor 프로퍼티는 자동으로 Car 생성자 함수를 참조합니다.
+    var Car = function () {
+    };
+    Car.prototype = {
+        startEngine: function () {
+            document.writeln('시동을 겁니다...<br/>');
+        },
+        accelerate: function () {
+            document.writeln('속도를 올립니다...<br/>');
+        },
+        decelerate: function () {
+            document.writeln('속도를 줄입니다...<br/>');
+        },
+        stopEngine: function () {
+            document.writeln('시동을 끕니다...<br/>');
+        }
+    };
+
+    // K5 생성자 함수의 프로토타입 객체는 new 연산자와 Object 생성자 함수 호출을 통해 생성된 객체이며,
+    // 프로토타입 객체에 constructor 프로퍼티는 자동으로 K5 생성자 함수를 참조합니다.
+    var K5 = function () {
+    };
+
+    // K5() 생성자 함수의 prototype 프로퍼티가 new 연산자와 Car() 생성자 함수 호출을 통해 생성된 객체를
+    // 참조하면 Car() 생성자 함수의 프로토타입 멤버를 상속하게 됩니다.
+    K5.prototype = new Car();
+    // 프로토타입 객체가 Car() 생성자 함수를 통해 만들어졌기 때문에 constructor 프로퍼티는
+    // Car() 생성자 함수를 참조하게 됩니다. 따라서 constructor 프로퍼티를 K5() 생성자 함수로 변경합니다.
+    K5.prototype.constructor = K5;
+
+    K5.prototype.startNavigation = function () {
+        document.writeln('네비게이션 안내를 시작합니다...<br/>');
+
+    };
+    K5.prototype.stopNavigation = function () {
+        document.writeln('네비게이션 안내를 종료합니다...<br/>');
+    };
+
+    var k5 = new K5();
+    k5.startEngine();
+    k5.startNavigation();
+    k5.accelerate();
+    k5.decelerate();
+    k5.stopNavigation();
+    k5.stopEngine();
+
+    document.writeln('<br/>');
+</script>
+</body>
+</html>

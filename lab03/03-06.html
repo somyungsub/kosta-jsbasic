@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <title>03-06</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      // if 문
+      
+      var score = 88;
+      var level;
+      
+      // if 문의 조건식은 상호 배타적으로 동작하므로, 
+      // 조건을 중복해서 작성하실 필요가 없으며, 
+      // 조건을 만족했을 경우 실행할 문장이 하나일 경우 블록을 생략할 수 있습니다.
+      if (score >= 90) {          // 90점이상 100점 이하
+        level = 'A';
+      } else if (score >= 80) {   // 80점이상 90점 미만
+        level = 'B';
+      } else if (score >= 70) {   // 70점이상 80점 미만
+        level = 'C';
+      } else if (score >= 60) {   // 60점이상 70점 미만
+        level = 'D';
+      } else {                    // 60점 미만
+        level = 'F';
+      }
+      
+      document.writeln(score + '점은 ' + level + ' 학점입니다.<br/>');
+      document.writeln('<br/>');
+    </script>
+  </body>
+</html>

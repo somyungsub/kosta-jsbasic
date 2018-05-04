@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8"/>
+    <title>08-03</title>
+    <script type="text/javascript">
+
+        // click 이벤트 발생 시 수행할 이벤트 핸들러 함수입니다.
+        function addText() {
+            var resultElement = document.getElementById('result');
+            resultElement.innerHTML = '크로스 브라우징 이벤트 리스너 구현!!!';
+
+        }
+
+        // click 이벤트 발생 시 수행할 이벤트 핸들러 함수입니다.
+        function clearText() {
+            var resultElement = document.getElementById('result');
+            resultElement.innerHTML = '';
+        }
+
+        // load 이벤트 발생 시 수행할 이벤트 핸들러 함수입니다.
+        function init() {
+            // id 속성 값이 'btnClick', 'btnCancel'인 버튼을 찾아 크로스 브라우징 기능이 구현된
+            // 이벤트 리스너 등록 함수를 사용해 click 이벤트에 대한 이벤트 핸들러 함수를 등록합니다.
+            var btnClickElement = document.getElementById('btnClick');
+            var btnCancelElement = document.getElementById('btnCancel');
+            addListener(btnClickElement, 'click', addText);
+            addListener(btnCancelElement, 'click', clearText);
+        }
+
+        // 크로스 브라우징을 고려해 구현한 이벤트 리스너 등록  함수입니다.
+        // el : 이벤트가 발생할 HTML 요소
+        // ev : 이벤트
+        // handler : 이벤트 핸들러 함수
+        function addListener(el, ev, handler) {
+            // FireFox, Chrome과 같은 비 IE 웹브라우저의 경우
+            if (el.addEventListener) {
+                el.addEventListener(ev, handler, false);
+            } else { // IE 웹 브라우저의 경우
+                el.attachEvent('on' + ev, handler);
+            }
+        }
+
+        addListener(window, 'load', init);
+
+    </script>
+</head>
+<body>
+<form>
+    <input type="button" id="btnClick" value="눌러주세요"/>
+    <input type="button" id="btnCancel" value="취소"/>
+</form>
+<div id="result">
+</div>
+</body>
+</html>

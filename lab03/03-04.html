@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <title>03-04</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      // 논리연산자
+      
+      var calculator;
+      
+      // &&연산에서 좌측 표현식이 undefined값을 가지면 false로 평가되어 우측 평가식을 실행하지 않습니다.  
+      calculator && document.writeln('calculator.add(2,3): ' + calculator.add(2,3));
+      
+      calculator = {
+        add : function(op1, op2) {
+          return op1 + op2;
+        }
+      };
+      
+      // &&연산에서 좌측 표현식이 0, undefined, null, NaN, "" 이외의 값을 가지면 true로 평가되어
+      // 우측 평가식을 실행합니다.
+      calculator && document.writeln('calculator.add(2,3): ' + calculator.add(2, 3));
+      
+      // ||연산에서 좌측 표현식이 undefined값을 가지면 false로 평가되어 우측 평가식을 실행합니다.  
+      calculator.subtract || (calculator.subtract = function(op1, op2) { return op1 - op2; });
+      document.writeln('<br/>');
+      calculator.subtract && document.writeln('calculator.subtract(2,3): ' + calculator.subtract(2, 3));
+    </script>
+  </body>
+</html>

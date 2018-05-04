@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script>
+        $(document).ready(function () {
+            /*
+                태그가 다른 경우에 동일한 효과를 주고 싶은 경우
+                  -> class를 활용
+                  -> .클래스명 으로 선택
+             */
+            $('.item').css('color', 'orange');
+            $('h1.item').css('background', 'red');
+
+        });
+    </script>
+</head>
+<body>
+    <h1 class="item">Header-0</h1>
+    <h1 class="item select">Header-1</h1>
+    <h1 class="item">Header-2</h1>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <title>03-01</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      // 산술연산자
+      
+      var num = 20;
+      var str = '20';
+      var bool = true;
+      var obj = {}; 
+      // 피연산자가 숫자일 경우 덧셈 연산을 행합니다.      
+      document.writeln('num + 13: ');
+      document.writeln(num + 13);         // 33
+      document.writeln('<br/>');
+      
+      // 피연산자가  불리언일 경우 true는 1로, false는 0으로 변환되어 
+      // 덧셈연산을 행합니다.
+      document.writeln('bool + 1: ');
+      document.writeln(bool + 1);         // 2
+      document.writeln('<br/>');
+      
+      // 피연산자의 한 쪽이 문자열일 경우 나머지 피연산자도 문자열로 변환되어 
+      // 문자열 접합연산을 행합니다.
+      document.writeln('str + 13: ');
+      document.writeln(str + 13);         // 2013
+      document.writeln('<br/>');
+      
+      // 피연산자의 한 쪽이 객체일 경우 객체는 문자열로 변환돠고, 
+      // 나머지 피연산자도 문자열로 변환되어 문자열 접합연산을 행합니다.
+      document.writeln('obj + 10: ');
+      document.writeln(obj + 10);         // [object Object]10 
+      document.writeln('<br/>');
+      document.writeln('<br/>');
+      
+      // 후치증가연산은 먼저 피연산자의 값을 반환하고, 피연산자의 값을 1 증가시킵니다.
+      var x = 3;
+      var y = x++;
+      document.writeln('x: ' + x + '<br/>');    // x: 4
+      document.writeln('y: ' + y + '<br/>');    // y: 3
+      document.writeln('<br/>');
+      
+      // 전치증가연산은 먼저 피연산자의 값을 1 증가시키고, 피연산자의 값을 반환합니다.
+      x = 3;
+      y = ++x;
+      document.writeln('x: ' + x + '<br/>');    // x: 4
+      document.writeln('y: ' + y + '<br/>');    // y: 4
+      document.writeln('<br/>');
+    </script>
+  </body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <title>08-01</title>
+    <script type="text/javascript">
+    
+      // 주어진 노드 객체의 모든 자식노드 중 노드타입이 엘리먼트인 노드의 이름을 출력합니다.
+      function printTags(node) {
+        var tags = '';
+        // 노드타입이 엘리먼트인지를 검사합니다.
+        if (node.nodeType == Node.ELEMENT_NODE) {
+          // nodeName 프로퍼티에 저장되어 있는 노드의 이름을 tags 변수에 저장합니다.
+          tags += node.nodeName + '<br/>';
+        }
+        
+        // 자식노드 객체들에 대한 NodeList 객체를 저장합니다.
+        var children = node.childNodes;
+        
+        // NodeList 객체의 length 프로퍼티를 이용해 printTags 함수를 재귀호출 합니다.
+        for (var i = 0; i < children.length; i++) { 
+          // printTags 함수에 NodeList 객체에 담긴 자식노드 항목들을 전달하여 
+          // 실행된 결과를 tags 변수에 문자열 접합연산을 통해 저장합니다.
+          tags += printTags(children[i]);
+        }
+        
+        return tags;
+      }
+    
+      // HTML 문서가 파싱되고 외부 컨텐츠 로딩이 완료되면 웹 브라우저는 load 이벤트를 발생하는데, 
+      // 이 때 load 이벤트의 이벤트 핸들러로 등록된 함수가 실행됩니다. 이 load 이벤트 핸들러에서 
+      // id 값이 "result"인 div 태그를 찾아 innerHTML 프로퍼티에 html 문자열 값을 저장합니다. 
+      window.onload = function() {
+        var result = document.getElementById('result');
+        result.innerHTML = printTags(document);   	  	
+    	 };
+    </script>
+  </head>
+  <body>
+    <div id="result">
+    </div>
+  </body>
+</html>

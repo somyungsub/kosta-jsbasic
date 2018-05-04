@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        /*상속 연습*/
+
+        // 부모 객체
+        function A(c, d) {
+            this.circle = c;    // A 속성
+            this.diamond = d;   // A 속성
+        }
+
+        // add 메서드 수정 : 여기만 수정하면 됨
+        A.prototype.add = function (a, b) {
+            return a + b;
+        };
+
+        // 자식 객체
+        function A1(c, d, s) {
+            A.apply(this, [c, d]);  // A의 생성자 호출 -> 값 초기화
+            this.square = s;        // A1 속성
+        }
+
+        A1.prototype = new A(); // 속성과 메서드가 복사되지만 존재하는것은 제외하고 복사됨. 생성자까지 전부 복사됨
+        A1.constructor = A1;    // A1의 생성자가 A로 복사되어 있기 때문에 이를 방지하기 위함. -> A1으로 다시 재 설정
+        delete A1.prototype.circle;     // 만약 중복된 속성이 있으면 지우겠다.
+        delete A1.prototype.diamond;    // 만약 중복된 속성이 있으면 지우겠다.
+        A1.prototype.multi = function (a, b) {
+            return a * b;
+        };
+
+        var a = new A();
+        document.writeln("a.add : "+a.add(1, 2)+"<br/>");
+        document.writeln("a.circle : "+ a.circle+"<br/>");
+        document.writeln("a.diamond : "+a.diamond+"<br/>");
+
+        var a1 = new A1(3, 4, 5);
+        document.writeln("a1.add : "+a1.add(10, 5)+"<br/>");
+        document.writeln("a1.multi : "+a1.multi(10, 2)+"<br/>");
+        document.writeln("a1.circle : "+ a1.circle+"<br/>");
+        document.writeln("a1.diamond : "+a1.diamond+"<br/>");
+        document.writeln("a1.square : "+a1.square+"<br/>");
+    </script>
+</head>
+<body>
+
+</body>
+</html>

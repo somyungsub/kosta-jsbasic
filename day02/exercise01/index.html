@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>JQuery 실습1</title>
+		<meta charset="utf-8">
+		<style>
+			/* 아이디 속성이 clickMe인 객체의 스타일 설정 */
+			#clickMe {
+				background: #D8B36E;
+				padding: 20px;
+				text-align: center;
+				width: 205px;
+				display: block;
+				border: 2px solid #000;
+			}
+			/* 아이디 속성이 pickframe인 객체의 스타일 설정
+			display:none 으로 기본으로 않보이게 설정
+			*/
+			#picframe {
+				background: #D8B36E;
+				padding: 20px;
+				width: 205px;
+				display: none;
+				border: 2px solid #000;
+			}
+
+		</style>
+        <!--<script src="scripts/jquery-1.6.2.min.js"></script>-->
+        <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+        <script>
+            $(document).ready(function(){
+                //id가 clickMe인 객체를 클릭했을때 호출되는 함수
+                $("#clickMe").on('click', function () {
+                    //1.image태그를 선택해서  1초정도 시간에 걸려서 서서히 화면에 보이도록 함
+                    //image태그 선택자.fadeIn(1000);
+                    $("img").fadeIn(1000);
+
+                    //2.id속성이 picframe 객체를 위에서 아래로 펼쳐지는 효과를 줌
+                    // id속성에 picframe객체선택자.slideToggle("slow");
+                    $("#picframe").slideToggle("slow");
+                })
+            });
+        </script>
+
+	</head>
+	<body>
+		<div id="clickMe">여기를 클릭하면 강아지 그림이 보입니다</div>
+		<div id="picframe">
+			<img src="images/furry_friend.jpg">
+		</div>
+	</body>
+</html>

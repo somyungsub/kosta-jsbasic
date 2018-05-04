@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script>
+        $(document).ready(function () {
+            /*
+                5초 후에 코드를 실행합니다.
+                내장함수 ->  setTimeout(func, time) : time 후 func 실행
+             */
+            setTimeout(function () {
+                /*
+                    변수를 선언합니다.
+                      -> 태그:속성명
+                 */
+                var value = $('select > option:selected').val();
+
+                // 출력합니다.
+                alert(value);
+            }, 5000);   // 1/1000 초 -> 5초
+        });
+    </script>
+</head>
+<body>
+    <select>
+        <option>Apple</option>
+        <option>Bag</option>
+        <option>Cat</option>
+        <option>Dog</option>
+        <option>Elephant</option>
+    </select>
+</body>
+</html>

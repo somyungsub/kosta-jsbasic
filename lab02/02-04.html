@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <title>02-04</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      
+      var a = 10;
+      document.writeln('a: ' + a + '<br/>');                              // a: 10
+      document.writeln('typeof a: ' + typeof a + '<br/>');        // typeof a: number
+      document.writeln('isFinite(a): ' + isFinite(a) + '<br/>');    // isFinite(a): true
+      document.writeln('isNaN(a): ' + isNaN(a) + '<br/>');        // isNaN(a): false
+      document.writeln('<br/>');
+      
+      var b = 1 / 0;
+      document.writeln('b: ' + b + '<br/>');                             // b: Infinity
+      document.writeln('typeof b: ' + typeof b + '<br/>');        // typeof b: number
+      document.writeln('isFinite(b): ' + isFinite(b) + '<br/>');   // isFinite(b): false
+      document.writeln('isNaN(b): ' + isNaN(b) + '<br/>');        // isNaN(b): false    
+      document.writeln('<br/>');
+      
+      var c = 5 * "4times";
+      document.writeln('c: ' + c + '<br/>');                              // c: NaN
+      document.writeln('type of c: ' + typeof c + '<br/>');       // typeof c: number
+      document.writeln('isFinite(c): ' + isFinite(c) + '<br/>');    // isFinite(c): false
+      document.writeln('isNaN(c): ' + isNaN(c) + '<br/>');        // isNaN(c): true
+      document.writeln('<br/>');
+
+    </script>
+  </body>
+</html>

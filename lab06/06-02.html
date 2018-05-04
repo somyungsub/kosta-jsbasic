@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8"/>
+    <title>06-02</title>
+</head>
+<body>
+<script type="text/javascript">
+    // 객체 멤버 상속을 위해 Function() 생성자의 메소드 apply()와 call()을 사용해 구현하는  생성자 체이닝
+
+    var Car = function (f) {
+        this.fuel = f;
+        this.velocity = 0;
+        this.isDriving = false;
+    };
+
+    Car.prototype = {
+        startEngine: function () {
+            this.isDriving = true;
+            this.fuel -= 5;
+            document.writeln('Car: 시동을 겁니다... (isDriving: ' + this.isDriving + ', fuel: ' + this.fuel + ')<br/>');
+        },
+        accelerate: function () {
+            this.velocity += 5;
+            this.fuel -= 5;
+            document.writeln('Car: 속도를 올립니다++++ (velocity: ' + this.velocity + ', fuel: ' + this.fuel + ')<br/>');
+        },
+        decelerate: function () {
+            this.velocity -= 5;
+            this.fuel -= 1;
+            document.writeln('Car: 속도를 줄입니다---- (velocity: ' + this.velocity + ', fuel: ' + this.fuel + ')<br/>');
+        },
+        stopEngine: function () {
+            this.isDriving = false;
+            this.fuel -= 5;
+            document.writeln('Car: 시동을 끕니다... (isDriving: ' + this.isDriving + ', fuel: ' + this.fuel + ')<br/>');
+        }
+    };
+
+    var K5 = function (f, m) {
+        // 객체 멤버 상속
+        Car.apply(this, [f]); // 또는 Car.call(this, f); 
+        this.model = m;
+    };
+
+    K5.prototype = new Car();
+    K5.prototype.constructor = K5;
+    delete K5.prototype.fuel;
+    delete K5.prototype.velocity;
+    delete K5.prototype.isDriving;
+
+    K5.prototype.accelerate = function () {
+        this.velocity += 10;
+        this.fuel -= 5;
+        document.writeln('K5 ' + this.model + ': 속도를 올립니다++++ (velocity: ' + this.velocity + ', fuel: ' + this.fuel + ')<br/>');
+    };
+
+    K5.prototype.decelerate = function () {
+        this.velocity -= 10;
+        this.fuel -= 1;
+        document.writeln('K5 ' + this.model + ': 속도를 줄입니다---- (velocity: ' + this.velocity + ', fuel: ' + this.fuel + ')<br/>');
+    };
+
+    K5.prototype.startNavigation = function () {
+        document.writeln('K5 ' + this.model + ': 네비게이션 안내를 시작합니다...<br/>');
+    };
+
+    K5.prototype.stopNavigation = function () {
+        document.writeln('K5 ' + this.model + ': 네비게이션 안내를 종료합니다...<br/>');
+    };
+
+    var k5 = new K5(1000, '2013년형');
+    document.writeln('>>> k5.fuel: ' + k5.fuel + '<br/>');
+    k5.startEngine();
+    document.writeln('>>> k5.fuel: ' + k5.fuel + '<br/>');
+    k5.startNavigation();
+    for (var i = 0; i < 5; i++)
+        k5.accelerate();
+    document.writeln('>>> k5.fuel: ' + k5.fuel + '<br/>');
+    for (var i = 0; i < 5; i++)
+        k5.decelerate();
+    document.writeln('>>> k5.fuel: ' + k5.fuel + '<br/>');
+    k5.stopNavigation();
+    document.writeln('>>> k5.fuel: ' + k5.fuel + '<br/>');
+    k5.stopEngine();
+    document.writeln('>>> k5.fuel: ' + k5.fuel + '<br/>');
+
+    document.writeln('<br/>');
+</script>
+</body>
+</html>

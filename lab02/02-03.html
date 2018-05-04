@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8"/>
+    <title>02-03</title>
+</head>
+<body>
+<script type="text/javascript">
+    // 데이터 타입
+    var num = 10;              // 숫자형
+    var str = '자바스크립트';   // 문자열형
+    var point = {x: 300, y: 400}; // 객체
+    var arr = [10, 20, 30, 40];     // 배열
+
+    // 함수
+    var add = function (op1, op2) {
+        console.log("op1 : ", op1);
+        console.log("op2 : ", op2);
+        if (!op1) {
+            op1 = 0;
+        }
+        if (!op2) {
+            op2 = 0;
+        }
+        return op1 + op2;
+    };
+    document.writeln("add() : " + add()+"<br/>");
+    document.writeln('num: ' + num + '<br/>');  // num: 10
+    document.writeln('str: ' + str + '<br/>');  // str: 자바스크립트
+
+    document.writeln('point.x: ' + point.x + '<br/>');        // point.x: 300
+    document.writeln('point["y"]: ' + point["y"] + '<br/>');  // point["y"]: 400
+    document.writeln('arr[0]: ' + arr[0] + '<br/>');          // arr[0]: 10
+    document.writeln('arr[3]: ' + arr[3] + '<br/>');          // arr[3]: 40
+    document.writeln('add: ' + add + '<br/>');                // add: function (op1, op2) { return op1 + op2; }
+    document.writeln('add(2, 3): ' + add(2, 3) + '<br/>');    // add(2, 3): 5
+    document.writeln('add(2): ' + add(2) + '<br/>');          // NaN : 2 + undefined (숫자가 아님)
+</script>
+</body>
+</html>

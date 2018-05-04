@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <title>02-10</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      // undefined와 null
+      var a;        // 변수 초기값 미지정 시 undefined 값이 할당됩니다.
+      var obj = {}; // 프로퍼티가 없는 빈 객체를 생성합니다.
+            
+      document.writeln('a: ' + a + '<br/>');                // a: undefined
+      document.writeln('obj: ' + obj + '<br/>');            // obj: [object Object]
+      document.writeln('obj.prop: ' + obj.prop + '<br/>');  // obj.prop: undefined
+
+      obj = null;   // 객체 참조를 제거합니다.
+      document.writeln('obj: ' + obj + '<br/>');            // obj: null
+      document.writeln('<br/>');
+      
+      if (!a)   // !undefined
+        document.writeln('변수 a는 초기화가 필요합니다.<br/>');
+        
+      if (!obj) // !null
+        document.writeln('변수 obj는 참조하는 객체가 없습니다.<br/>');   
+    </script>
+  </body>
+</html>

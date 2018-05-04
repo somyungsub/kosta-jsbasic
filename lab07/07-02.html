@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8"/>
+    <title>08-02</title>
+    <script type="text/javascript">
+
+        // 버튼 "btnAdd"를 클릭하면 이 함수를 호출합니다.
+        function add() {
+            // id 속성 값이 'siteName', 'url', 'result'인 엘리먼트를 찾아 참조합니다.
+            var siteNameElement = document.getElementById('siteName');
+            var urlElement = document.getElementById('url');
+            var resultElement = document.getElementById('result');
+
+            // <a></a> 엘리먼트를 생성합니다.
+            var anchorElement = document.createElement('a');
+            // <a href="???"></a> 엘리먼트의  href 속성값을 urlElement에 저장된 값으로 대입합니다.
+            anchorElement.href = urlElement.value;
+            // siteNameElement에 저장된 값으로 텍스트노드를 생성합니다.
+            var newTextNode = document.createTextNode(siteNameElement.value);
+            // <a href="???"> ???? </a> 엘리먼트의 자식노드로 방금 전 만든 텍스트노드를 추가합니다.
+            anchorElement.appendChild(newTextNode);
+            // <br /> 엘리먼트를 생성합니다.
+            var brElement = document.createElement('br');
+            // resultElement의 자식노드로 anchorElement와 brElement를 추가합니다.
+            resultElement.appendChild(anchorElement);
+            resultElement.appendChild(brElement);
+
+            // 입력 필드를 초기화합니다.
+            siteNameElement.value = '';
+            urlElement.value = '';
+        };
+
+        // 버튼 "btnCancel"을 클릭하면 이 함수를 호출합니다.
+        function cancel() {
+            // id 속성 값이 'siteName', 'url'인 엘리먼트를 찾아 참조합니다.
+            var siteNameElement = document.getElementById('siteName');
+            var urlElement = document.getElementById('url');
+
+            // 입력 필드를 초기화합니다.
+            siteNameElement.value = '';
+            urlElement.value = '';
+        };
+
+        // HTML 문서가 파싱되고 외부 컨텐츠 로딩이 완료되면 웹 브라우저는 load 이벤트를 발생하는데,
+        // 이 때 load 이벤트의 이벤트 핸들러로 등록된 함수가 실행됩니다. 이 load 이벤트 핸들러에서
+        // id 값이 "btnAdd"와 "btnCancel"인 버튼을 찾아 click이벤트에 대해 이벤트 핸들러 함수를 등록합니다.
+        window.onload = function () {
+            var btnAddElement = document.getElementById('btnAdd');
+            var btnCancelElement = document.getElementById('btnCancel');
+
+            btnAddElement.onclick = add;
+            btnCancelElement.onclick = cancel;
+        };
+    </script>
+</head>
+<body>
+<form>
+    <label>
+        웹 사이트 : <br/>
+        <input type="text" id="siteName" size="50"/><br/>
+    </label>
+    <label>
+        URL : <br/>
+        <input type="text" id="url" size="50"/><br/>
+    </label>
+    <input type="button" id="btnAdd" value="추가"/>
+    <input type="button" id="btnCancel" value="취소"/>
+</form>
+<div id="result">
+</div>
+</body>
+</html>

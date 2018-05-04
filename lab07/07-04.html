@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8"/>
+    <title>08-04</title>
+    <style>
+        .class1 {
+            background-color: #adff2f;
+        }
+
+        .class2 {
+            background-color: #dda0dd;
+        }
+    </style>
+    <script type="text/javascript">
+
+        // 크로스 브라우징이 적용된 이벤트 버블링 억제 함수
+        function cancelBubbling(e) {
+            // FireFox, Chrome과 같은 비 IE 웹브라우저의 경우
+            if (e.stopPropagation) {
+                e.stopPropagation();
+            } else {  // IE 웹 브라우저의 경우
+                window.event.cancelBubble = true;
+            }
+        }
+
+        // click 이벤트 발생 시 수행할 이벤트 핸들러 함수입니다.
+        function outerFunc() {
+            var resultElement = document.getElementById('result');
+            resultElement.innerHTML = 'outer 에서 click 이벤트 발생';
+
+        }
+
+        // click 이벤트 발생 시 수행할 이벤트 핸들러 함수입니다.
+        function innerFunc(e) {
+            var resultElement = document.getElementById('result');
+            resultElement.innerHTML = 'inner 에서 click 이벤트 발생';
+            //cancelBubbling(e);  // 상위 객체로의 이벤트 버블링을 억제합니다.
+        }
+
+        // load 이벤트 발생 시 수행할 이벤트 핸들러 함수입니다.
+        function init() {
+            // id 속성 값이 'outer', 'inner'인 영역을 찾아 크로스 브라우징 기능이 구현된
+            // 이벤트 리스너 등록 함수를 사용해 click 이벤트에 대한 이벤트 핸들러 함수를 등록합니다.
+            var outerElement = document.getElementById('outer');
+            var innerElement = document.getElementById('inner');
+            outerElement.className = 'class2';
+            innerElement.className = 'class1';
+            addListener(outerElement, 'click', outerFunc);
+            addListener(innerElement, 'click', innerFunc);
+        }
+
+        // 크로스 브라우징을 고려해 구현한 이벤트 리스너 등록  함수입니다.
+        // el : 이벤트가 발생할 HTML 요소
+        // ev : 이벤트
+        // handler : 이벤트 핸들러 함수
+        function addListener(el, ev, handler) {
+            // FireFox, Chrome과 같은 비 IE 웹브라우저의 경우
+            if (el.addEventListener) {
+                el.addEventListener(ev, handler, false);
+            } else { // IE 웹 브라우저의 경우
+                el.attachEvent('on' + ev, handler);
+            }
+        }
+
+        addListener(window, 'load', init);
+
+    </script>
+</head>
+<body>
+<div id="outer">
+    외부영역을
+    <div id="inner">
+        내부 영역을 클릭해 보세요!!!
+    </div>
+    클릭해보세요!!!
+</div>
+<div id="result">
+</div>
+</body>
+</html>

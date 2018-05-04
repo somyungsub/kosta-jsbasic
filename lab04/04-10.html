@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <title>04-10</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      // 콜백함수
+      
+      function main() {
+        
+        var array = [];
+        
+        // 내장객체 Math의 random 함수는 0 ~ 1 사이의 값을 반환하고,
+        // 내장객체 Math의 ceil 함수는 인자 값 이상의 최소 정수를 반환합니다.
+        for (var i = 0; i < 10; i++) {
+          array[i] = Math.ceil(Math.random() * 45);  
+        }
+        
+        // work 함수를 호출하면서 첫번째 매개변수로 처리할 데이터 data를, 
+        // 두번째, 세번째 매개변수로 콜백함수 even과 odd를 전달합니다.
+        work(array, even, odd);
+        
+      }
+      
+      // 콜백함수 even은 짝수가 발견될 때마다 호출될 함수로 당시의 배열 인덱스와 원소를 출력합니다.
+      function even(idx, num) {
+        document.writeln((idx + 1) + '번째 데이터는 짝수 ' + num + '입니다.<br/>');
+      }
+      
+      // 콜백함수 odd는 홀수가 발견될 때마다 호출될 함수로 당시의 배열 인덱스와 원소를 출력합니다.
+      function odd(idx, num) {
+        document.writeln((idx + 1) + '번째 데이터는 홀수 ' + num + '입니다.<br/>');
+      }
+      
+      // work 함수는 매개변수로 전달받은 배열 data에서 
+      // 짝수가 발견될 때마다 매개변수로 전달받은 콜백함수 callback1를 호출하고, 
+      // 홀수가 발견될 때마다 매개변수로 전달받은 콜백함수 callback2를 호출합니다.
+      function work(data, callback1, callback2) {
+        for (var i = 0; i < data.length; i++) {
+          if (data[i] % 2 == 0)
+            callback1(i, data[i]);
+          else
+            callback2(i, data[i]);
+        }
+      }
+      
+      // main 함수를 실행합니다.
+      main();
+
+    </script>
+  </body>
+</html>

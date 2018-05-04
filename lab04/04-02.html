@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <title>04-02</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      // 전역 스코프와 지역 스코프
+      
+      // 전역 스코프를 가진 전역 변수
+      var x = 'global x';   
+      var y = 'global y'; 
+
+      
+      function func() {
+        
+        // 지역 스코프를 가진 지역 변수는 반드시 var 키워드와 함께 선언되어야 합니다.
+        var x = 'local x';
+        
+        // var 키워드 없을 경우 전역스코프에 접근해 동일 이름을 가진 전역변수를 사용하며,
+        // 만일 동일 이름의 전역 변수가 없을 경우 전역변수를 새로 등록합니다.
+        y = '???';
+        
+        document.writeln('x: ' + x + '<br/>'); //local x
+        document.writeln('y: ' + y + '<br/>'); // ???
+        document.writeln('<br/>'); 
+      }
+      
+      document.writeln('func() 호출 전<br/>');
+      document.writeln('x: ' + x + '<br/>'); //global x
+      document.writeln('y: ' + y + '<br/>'); //global y
+      document.writeln('<br/>');
+      
+      document.writeln('func() 호출<br/>');
+      func();
+      
+      document.writeln('func() 호출 후<br/>');
+      document.writeln('x: ' + x + '<br/>');  //global x
+      document.writeln('y: ' + y + '<br/>');  //???
+      document.writeln('<br/>');
+    </script>
+  </body>
+</html>

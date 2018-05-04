@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <title>04-09</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      // 스코프 체인
+      
+      // 1. 전역 레벨의 파싱 결과 전역객체에 프로퍼티 x와 outer가 정의됩니다.
+       
+      var x = '전역 객체에 등록되어 있는 x 프로퍼티 값';
+      
+      function outer() {
+        var y = 'outer 함수의 호출 객체에 등록되어 있는 y 프로퍼티 값';
+        
+        function inner() {
+          var z = 'inner 함수의 호출 객체에 등록되어 있는 z 프로퍼티 값';
+          document.writeln('x: ' + x + '<br/>');
+          document.writeln('y: ' + y + '<br/>');
+          document.writeln('z: ' + z + '<br/>');
+        } 
+        
+        // 3. 함수 레벨의 파싱 결과 inner 함수에 대한 호출 객체에 arguments 프로퍼티가 초기화되고, 
+        //    프로퍼티 z가 정의되고,
+        //    outer 함수의 호출 객체와 inner 함수의 호출 객체 간에 스코프 체인이 연결되고,
+        //    inner 함수의 코드를 실행합니다.
+        //    이 때 x는 전역객체에, y는 outer 함수의 호출객체에, z는 inner 함수의 호출객체에 접근해서
+        //    그 값을 취합니다. 
+        inner();        
+         
+      }
+      
+      // 2. 함수 레벨의 파싱 결과 outer 함수에 대한 호출 객체에 arguments 프로퍼티가 초기화되고, 
+      //    프로퍼티 y와  inner가 정의되고,
+      //    전역객체와 outer 함수의 호출 객체 간에 스코프 체인이 연결된 후,
+      //    outer 함수의 코드를 실행합니다.
+      outer(); 
+      
+      document.writeln('<br/>');
+    </script>
+  </body>
+</html>

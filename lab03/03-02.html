@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <title>03-02</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      // 대입연산자
+      
+      var x = 5;
+ 
+      // 대입연산자와 산술연산자를 함께 사용하는 복합대입연산자 
+      x += 3;
+      document.writeln('x += 3: ' + x + '<br/>');   // x += 3: 8
+      x = 5;
+      x -= 3;
+      document.writeln('x -= 3: ' + x + '<br/>');   // x -= 3: 2
+      x = 5;
+      x *= 3;
+      document.writeln('x *= 3: ' + x + '<br/>');   // x *= 3: 15
+      x = 5;
+      x /= 3;
+      document.writeln('x /= 3: ' + x + '<br/>');   // x /= 3: 1.6666666666666667
+      x = 5;
+      x %= 3;
+      document.writeln('x %= 3: ' + x + '<br/>');   // x %= 3: 2
+      document.writeln('<br/>');
+      
+      // 대입연산자와 비트연산자를 함께 사용하는 복합대입연산자
+      x = 5;
+      x &= 2; // 비트 AND연산을 통해 x가 짝수인지 검사가 가능합니다.
+      document.writeln('x &= 2: ' + x + '<br/>');   // x &= 2: 0
+      x = 5;
+      x |= 2;
+      document.writeln('x |= 2: ' + x + '<br/>');   // x |= 2: 7
+      x = 5;
+      x ^= 2;
+      document.writeln('x ^= 2: ' + x + '<br/>');   // x ^= 2: 7
+      x = 5;
+      x <<= 2;
+      document.writeln('x <<= 2: ' + x + '<br/>');  // x <<= 2: 20
+      x = 5;
+      x >>= 2;
+      document.writeln('x >>= 2: ' + x + '<br/>');  // x >>= 2: 1
+      x = 5;
+      x >>>= 2;
+      document.writeln('x >>>= 2: ' + x + '<br/>'); // x >>>= 2: 1
+      document.writeln('<br/>');
+    </script>
+  </body>
+</html>

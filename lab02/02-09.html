@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <title>02-09</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      // 불리언 리터럴
+      var score = 88;
+      var message = '불합격';
+      
+      // score 값이 70이상일 경우 비교의 결과로 true를 반환하고,
+      // message 변수에 '합격' 문자열 값을 저장합니다.
+      if (score >= 70) {  
+        message = '합격';
+      }
+      
+      document.writeln(score + '점은 ' + message + '입니다.<br/>');
+      document.writeln('<br/>');
+      
+      // 0, undefined, null, NaN, "" 은 논리연산에서 false로 변환되어 평가됩니다.
+      var a = 0;
+      var b = undefined;
+      var c = null;
+      var d = NaN;
+      var e = "";
+      
+      document.writeln('!0 => ' + !a + '<br/>'); // true
+      document.writeln('!undefined => ' + !b + '<br/>'); // true
+      document.writeln('!null => ' + !c + '<br/>'); // true
+      document.writeln('!NaN => ' + !d + '<br/>'); // true
+      document.writeln('!"" => ' + !e + '<br/>'); // true
+      document.writeln('<br/>');
+    </script>
+  </body>
+</html>

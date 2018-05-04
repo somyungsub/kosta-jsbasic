@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <title>03-08</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      // &&와 ||을 이용한 조건문
+      
+      var arr;
+      
+      // arr이 undefined일 경우 비어있는 배열 객체를 대입합니다.
+      arr = arr || [];
+      
+      arr[0] = '홍길동';
+      arr[1] = '이순신';
+      arr[2] = '강감찬';
+      
+      // arr이 배열객체가 존재할 경우 arr 배열의 길이를 출력합니다. 
+      arr && document.writeln('arr.length: ' + arr.length + '<br/>');
+      document.writeln('<br/>');
+      document.writeln('<br/>');
+    </script>
+  </body>
+</html>

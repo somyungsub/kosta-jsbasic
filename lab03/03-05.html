@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <title>03-05</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      // 기타 연산자
+      
+      // 배열 객체에 숫자, 문자열, 불리언, Date 객체, 배열 객체들을 원소로 담습니다.
+      var arr = [1, '홍길동', '010-1234-5678', true, new Date(), [10, 20, 30]];
+      
+      document.writeln('typeof arr[0]: ' + typeof arr[0] + '<br/>');  // number
+      document.writeln('typeof arr[1]: ' + typeof arr[1] + '<br/>');  // string
+      document.writeln('typeof arr[2]: ' + typeof arr[2] + '<br/>');  // string
+      document.writeln('typeof arr[3]: ' + typeof arr[3] + '<br/>');  // boolean
+      document.writeln('typeof arr[4]: ' + typeof arr[4] + '<br/>');  // object
+      document.writeln('typeof arr[5]: ' + typeof arr[5] + '<br/>');  // object
+      document.writeln('<br/>');
+      
+      document.writeln('arr[4] instanceof Date: ' + (arr[4] instanceof Date) + '<br/>');    // true 
+      document.writeln('arr[4].constructor: ' + (arr[4].constructor) + '<br/>');            // function Date() { } 
+      document.writeln('arr[5] instanceof Array: ' + (arr[5] instanceof Array) + '<br/>');  // true
+      document.writeln('arr[5].constructor: ' + (arr[5].constructor) + '<br/>');            // function Array() { }
+      document.writeln('<br/>');
+       
+      document.writeln('arr: ' + arr + '<br/>');
+      document.writeln('<br/>');
+      document.writeln('delete arr[2]: ' + delete arr[2] + '<br/>');  // true
+      document.writeln('arr[2]: ' + arr[2] + '<br/>');                // undefined
+      document.writeln('<br/>');
+      document.writeln('arr: ' + arr + '<br/>');
+      document.writeln('<br/>');
+      
+      var point = { 
+        x : 20, 
+        y : 30, 
+        toString : function() {
+          return '{ x: ' + this.x + ', y: ' + this.y + " }";
+        }
+       };
+      
+      // point 객체 출력 시 에 point 객체 내에 정의한 toString 메소드를 호출합니다. 
+      document.writeln('point: ' + point + '<br/>');
+      // point 객체의 y 프로퍼티를 제거합니다.
+      document.writeln('delete point.y: ' + delete point.y + '<br/>');
+      document.writeln('point: ' + point + '<br/>');
+      // point 객체의 toString 메소드를 제거합니다.
+      document.writeln('delete point.toString: ' + delete point.toString + '<br/>');
+      document.writeln('point: ' + point + '<br/>');
+      
+      document.writeln('<br/>');
+    </script>
+  </body>
+</html>

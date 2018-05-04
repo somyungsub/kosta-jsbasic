@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script>
+
+
+        $(document).ready(function () {
+            /*
+                1. "*" -> 전체선택자
+                    : 모든 태그 리턴
+                    : 배열로 리턴
+                2. $.(효과, 이벤트 등 동작)
+            */
+            $('*').css('color', 'red');
+
+            /*
+                h1태그 선택
+             */
+            $('h1').css('color', 'blue');
+
+            /*
+                ID 선택
+             */
+            $('#target').css('color', 'orange');
+
+        });
+
+    </script>
+</head>
+<body>
+    <h1>Lorem ipsum</h1>
+    <p>나도 빨간색</p>
+    <p id="target">난 아이디 target p</p>
+</body>
+</html>

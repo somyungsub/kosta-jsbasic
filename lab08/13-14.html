@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script>
+        /*
+            h1태그 중 id=target 인것 선택
+            선택자가 붙으면 and 조건
+         */
+        $(document).ready(function () {
+            $('h1#target').css('color', 'orange');
+        });
+    </script>
+</head>
+<body>
+    <h1>Header-0</h1>
+    <h1 id="target">Header-1</h1>
+    <p id="target1">Header-1</p>
+    <h2 id="target2">Header-2</h2>
+    <h1>Header-2</h1>
+</body>
+</html>

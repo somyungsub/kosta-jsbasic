@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <title>03-13</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      // try...catch...finally
+      
+      var x = 5;
+      var result;
+      
+      try {
+        document.writeln('\u2460 <br/>');
+        result = x * y;   // y는 정의되어 있지 얺은 변수이므로 런타임에서 에러가 발생합니다.  
+        document.writeln('\u2461 ' + result + '<br/>');
+      } catch (e) {       // try 블록에서 발생한 에러에 대한 예외를 catch 블록에서 처리합니다.
+        document.writeln('\u2462 ' + e + '<br/>');
+      } finally {         // funally 블록은 예외 발생과 상관없이 무조건 수행됩니다.
+        document.writeln('\u2463 <br/>');        
+      }
+
+      document.writeln('<br/>');
+
+      try {
+        document.writeln('\u2460 <br/>');
+        result = x / 0;  
+        document.writeln('\u2461 ' + result + '<br/>');
+        throw new Error('0으로 나눌 수 없습니다.');  // 예외 객체를 만들어 던집니다. 
+      } catch (e) {       // try 블록에서 발생한 에러에 대한 예외를 catch 블록에서 처리합니다.
+        document.writeln('\u2462 ' + e + '<br/>');
+      } finally {         // funally 블록은 예외 발생과 상관없이 무조건 수행됩니다.
+        document.writeln('\u2463 <br/>');        
+      }
+    </script>
+  </body>
+</html>
